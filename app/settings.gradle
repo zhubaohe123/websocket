@@ -1,0 +1,28 @@
+pluginManagement {
+    repositories {
+        // 阿里云镜像（优先使用，解决网络问题）
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/maven-central' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        // 原始仓库（备用）
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.10.0'
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        // 阿里云镜像（优先使用，核心修复）
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/maven-central' }
+        // 原始仓库（备用）
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "SyncWatch"
+include ':app'

@@ -1,0 +1,15 @@
+services:
+  syncwatch-server:
+    build: .
+    image: syncwatch-server:latest
+    container_name: syncwatch-server
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

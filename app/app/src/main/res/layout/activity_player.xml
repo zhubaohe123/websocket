@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- ExoPlayer View -->
+    <androidx.media3.ui.PlayerView
+        android:id="@+id/player_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:show_timeout="5000"
+        app:use_controller="true"
+        app:show_buffering="when_playing" />
+
+    <!-- Top Room Info Bar -->
+    <LinearLayout
+        android:id="@+id/layout_room_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#CC1A1A2E"
+        android:padding="8dp"
+        android:gravity="center_vertical"
+        android:layout_gravity="top"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_connection_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="连接中..."
+            android:textColor="#FF9800"
+            android:textSize="12sp"
+            android:layout_marginEnd="12dp" />
+
+        <TextView
+            android:id="@+id/tv_room_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""
+            android:textColor="#CCFFFFFF"
+            android:textSize="12sp"
+            android:singleLine="true"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/tv_member_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="人数: 0"
+            android:textColor="#88FFFFFF"
+            android:textSize="12sp"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <!-- Bottom Control Bar -->
+    <LinearLayout
+        android:id="@+id/layout_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:background="#CC1A1A2E"
+        android:padding="6dp"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="90dp">
+
+        <Button
+            android:id="@+id/btn_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="1.0x"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:background="@drawable/btn_small_bg"
+            android:minWidth="56dp"
+            android:layout_marginEnd="6dp" />
+
+        <Button
+            android:id="@+id/btn_calibrate"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="校准进度"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:background="@drawable/btn_small_bg"
+            android:minWidth="72dp"
+            android:layout_marginEnd="6dp" />
+
+        <Button
+            android:id="@+id/btn_request_control"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="请求控制权"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:background="@drawable/btn_small_bg"
+            android:minWidth="88dp"
+            android:visibility="gone"
+            android:layout_marginEnd="6dp" />
+
+        <Button
+            android:id="@+id/btn_revoke_control"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="收回控制权"
+            android:textColor="#E94560"
+            android:textSize="12sp"
+            android:background="@drawable/btn_small_bg"
+            android:minWidth="88dp"
+            android:visibility="gone"
+            android:layout_marginEnd="6dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btn_leave_room"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="离开"
+            android:textColor="#F44336"
+            android:textSize="12sp"
+            android:background="@drawable/btn_small_bg"
+            android:minWidth="56dp" />
+    </LinearLayout>
+
+    <!-- Sync Status Overlay -->
+    <FrameLayout
+        android:id="@+id/layout_sync_overlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#BB000000"
+        android:padding="16dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_sync_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="正在同步进度..."
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+    </FrameLayout>
+
+</FrameLayout>
